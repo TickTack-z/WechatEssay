@@ -44,7 +44,7 @@ except:
 
 
 url = r'''
-https://mp.weixin.qq.com/s?__biz=MzUwOTg1OTU5MA==&mid=2247490944&idx=1&sn=2eca8e5867dde60f7923fe68600a9092&exportkey=Af7%2BqejU8j%2F%2F5Y313OSp2QQ%3D&pass_ticket=b44rzo%2Fa8JvBjtn26phN%2BF8dMxqAdwftx8kdtrPktBFvPXVMsIN6s7f5Bpfjdh9F
+https://mp.weixin.qq.com/s/xCRrw7sxPNDXlZMZmFwyDA
 '''
 content = urlopen(url).read()
 
@@ -73,7 +73,7 @@ listpp=re.split(r'<script|</script>|<style>|</style>',altxt)
 f1 = open('p1.htm','a+', encoding = 'utf8')
 soup = BeautifulSoup(content, "lxml")
 def if_script_not_needed(ele):
-    if 'aliceblue' in ele.contents and 'yellowgreen' in ele.contents:
+    if 'aliceblue' in str(ele) and 'yellowgreen' in str(ele):
         return False
     return True
 [x.extract() for x in soup.findAll(['script']) if if_script_not_needed(x)]
